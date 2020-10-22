@@ -2,15 +2,19 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/vim-easy-align'
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug '~/my-prototype-plugin'
 " wl add
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeFind' }
 Plug 'zivyangll/git-blame.vim'
 Plug 'vim-scripts/taglist.vim'
+
+Plug 'inkarkat/vim-ingo-library'
+Plug 'inkarkat/vim-mark'
 call plug#end()
 
 " Key Bindings: {{{
@@ -78,3 +82,12 @@ nmap <localleader>f :cs find f <C-R>=expand("<cfile>")<cr><cr>
 nmap <localleader>i :cs find i <C-R>=expand("<cfile>")<cr><cr>
 nmap <localleader>d :cs find d <C-R>=expand("<cword>")<cr><cr>
 
+
+" mark.vim use default mappings
+"        xmap <unique> <Leader>m <Plug>MarkSet
+"        nmap <unique> <Leader>n <Plug>MarkClear
+"        nmap <unique> <Leader>/ <Plug>MarkSearchAnyNext
+"        nmap <unique> <Leader>? <Plug>MarkSearchAnyPrev
+
+" vim
+set hlsearch
