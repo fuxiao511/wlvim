@@ -21,18 +21,38 @@ call plug#end()
 let mapleader = "'"
 let maplocalleader = ","
 
-
 " git command
 nnoremap <Leader>b :<C-u>call gitblame#echo()<CR>
+
 " -- git command on current file 
 fun! GitCommand(command) 
   silent! !clear 
   exec "!git " . a:command . " %" 
-endfun 
+endfun
+
+fun! GitShow()
+    silent! !clear
+    let l:blank = ' '
+    let l:file = expand('%')
+    let l:line = line('.')
+    let l:gb = gitblame#commit_summary(l:file, l:line)
+    let git_blame = split(system('cd "$(dirname "'.file.'")"; git --no-pager blame "$(basename "'.file.'")" -L "$(basename "'.line.'")",+1 --porcelain'), "\n")
+	
+    let commit_hash = matchstr( git_blame[0], '^\^*\zs\S\+' )
+    if commit_hash =~# '^0\+$'
+        " not committed yet
+        echo 'Not Committed yet'
+    endif
+	
+    "echo commit_hash
+    exec "!git show " . commit_hash . " "
+
+endfun
 " -- git diff for current file 
 map <leader>d :call GitCommand("diff") <CR> 
 " -- git log for current file 
-map <leader>l :call GitCommand("log -p") <CR> 
+map <leader>l :call GitCommand("log -p ") <CR> 
+map <leader>s :call GitShow() <CR> 
 " -- git blame for current file 
 map <leader>a :call GitCommand("blame") <CR> 
 
