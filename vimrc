@@ -26,7 +26,8 @@ nnoremap <Leader>b :<C-u>call gitblame#echo()<CR>
 
 " -- git command on current file 
 fun! GitCommand(command) 
-  silent! !clear 
+  silent! !clear
+  echo %
   exec "!git " . a:command . " %" 
 endfun
 
