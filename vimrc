@@ -68,6 +68,7 @@ let g:Tlist_Show_One_File = 1
 let g:Tlist_Enable_Fold_Column = 0
 let g:Tlist_Auto_Highlight_Tag = 1
 let g:Tlist_GainFocus_On_ToggleOpen = 1
+let g:Tlist_Close_On_Select = 1
 nmap <Leader>t :TlistToggle<cr>
 
 " nerdtree
