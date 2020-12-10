@@ -130,7 +130,7 @@ let g:ycm_min_num_identifier_candidate_chars = 0
 let g:ycm_collect_identifiers_from_comments_and_strings = 0
 let g:ycm_complete_in_strings=1
 let g:ycm_key_invoke_completion = '<c-n>'
-
+let g:ycm_auto_hover=''
 noremap <c-n> <NOP>
 let g:ycm_key_list_stop_completion = ['<CR>']
 let g:ycm_semantic_triggers =  {
