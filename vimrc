@@ -3,7 +3,6 @@ Plug 'junegunn/vim-easy-align'
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug '~/my-prototype-plugin'
@@ -15,6 +14,13 @@ Plug 'vim-scripts/taglist.vim'
 
 Plug 'inkarkat/vim-ingo-library'
 Plug 'inkarkat/vim-mark'
+"Plug 'rdnetto/ycm-generator'
+"Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+Plug 'valloric/youcompleteme'
+"Plug 'rizsotto/bear'
+" does not work in centos7
+"Plug 'vim-scripts/AutoComplPop'
+"Plug 'vim-scripts/OmniCppComplete'
 call plug#end()
 
 " Key Bindings: {{{
@@ -113,3 +119,21 @@ nmap <localleader>d :cs find d <C-R>=expand("<cword>")<cr><cr>
 
 " vim
 set hlsearch
+
+" youcompleteme
+"set completeopt=menu,menuone
+set completeopt=menu
+let g:ycm_add_preview_to_completeopt = 0
+let g:ycm_show_diagnostics_ui = 0
+let g:ycm_server_log_level = 'info'
+let g:ycm_min_num_identifier_candidate_chars = 0
+let g:ycm_collect_identifiers_from_comments_and_strings = 0
+let g:ycm_complete_in_strings=1
+let g:ycm_key_invoke_completion = '<c-n>'
+
+noremap <c-n> <NOP>
+let g:ycm_key_list_stop_completion = ['<CR>']
+let g:ycm_semantic_triggers =  {
+			\ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
+			\ 'cs,lua,javascript': ['re!\w{2}'],
+			\ }
