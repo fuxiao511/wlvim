@@ -119,6 +119,11 @@ nmap <localleader>d :cs find d <C-R>=expand("<cword>")<cr><cr>
 
 " vim
 set hlsearch
+" tab = 4 whitespace
+filetype plugin indent on
+set tabstop=4
+set shiftwidth=4
+set expandtab
 
 " youcompleteme
 "set completeopt=menu,menuone
